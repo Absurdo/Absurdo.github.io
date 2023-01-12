@@ -1,0 +1,34 @@
+@import "./sections/definitions.css";
+@import "./sections/navbar.css";
+@import "./sections/header.css";
+@import "./sections/products.css";
+@import "./sections/modal.css";
+
+
+main{
+    position: relative;
+    top: 80px;
+}
+
+/* Footer */
+.containerFooter {
+    margin-top: auto;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color:rgba(27, 27, 58, 0.4);
+    background-color: rgba(105, 54, 104, 1);
+    color: var(--color4);
+    justify-content: center;
+    align-items: center;
+}
+
+.containerFooter img{
+    width: 80px;
+}
+
+@media (max-width:600px) {
+    main{
+        top: 100px;
+    }
+}

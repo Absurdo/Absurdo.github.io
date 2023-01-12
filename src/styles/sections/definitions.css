@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: url("../fonts/Gilroy-Bold.ttf");
+    src: url('../fonts/gilroy-bold-webfont.woff2') format('woff2'),
+         url('.,/fonts/gilroy-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url("../fonts/Gilroy-Medium.ttf");
+    src: url('../fonts/gilroy-medium-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gilroy-lightuploaded_file';
+    src: url("../fonts/Gilroy-Light.ttf");
+    src: url('../fonts/gilroy-light-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gilroy-semibolduploaded_file';
+    src: url("../fonts/Gilroy-Regular.ttf");
+    src: url('../fonts/gilroy-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+/* varibale */
+:root {
+    --darkBlue: #10172A;
+    --lightBlue: #4E73DF;
+    --blue: #3A55A5;
+    --black: #303030;
+    --white: #fefefe;
+    --titulo: 600;
+    --color1: rgba(27, 27, 58, 1);
+    --color2: rgba(105, 54, 104, 1);
+    --color3: rgba(167, 68, 130, 1);
+    --color4: rgba(248, 74, 167, 1);
+    --color5: rgb(168,176,178);
+    --color6: rgba(168,176,178,0.2);
+    --color7: rgb(124,131,133);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Gilroy-Medium', Arial, sans-serif;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: var(--color1);
+}
+
+button{
+    border-radius: 10px;
+    margin: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
