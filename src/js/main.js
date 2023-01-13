@@ -5,7 +5,6 @@ import { updateCart, getCartFromLocalStorage, addToCart, removeFromCart } from "
 
 //document.addEventListener('DOMContentLoaded', () => {window.scrollTo(0,0)});
 
-
 //print card product
 const viewP = products.map((product) => templateCard(product));
 const containProducts = document.getElementById("products");
@@ -74,19 +73,23 @@ addToCartButtonsModal.forEach(element => {
 
 
 // remove cart item from navbar
-const removeFromCartButtons = document.querySelectorAll('.remove-item-navbar');
-removeFromCartButtons.forEach(element => {
-	const idSplit = element.id.split('-');
-	
-	element.addEventListener('click', () => {
-		console.log(idSplit);
-		updateCart(removeFromCart(idSplit[1]));
-		const list = getCartFromLocalStorage();
-		const listCart = list.map((item) => printCart(item));
-		const navbarCart = document.getElementById("cart-list");
-		navbarCart.innerHTML = listCart.join(" ");
-	});
-}) 
+const removeItem = () => {
+	const removeFromCartButtons = document.querySelectorAll('.remove-item-navbar');
+	removeFromCartButtons.forEach(element => {
+		const idSplit = element.id.split('-');
+		element.addEventListener('click', () => {
+			console.log(idSplit);
+			updateCart(removeFromCart(idSplit[1]));
+			const list = getCartFromLocalStorage();
+			const listCart = list.map((item) => printCart(item));
+			const navbarCart = document.getElementById("cart-list");
+			navbarCart.innerHTML = listCart.join(" ");
+		})
+	}) 
+}
+
+//removeItem();
+
 
 // Route to thankyou after navbar buy click
 const buy = document.getElementById('buy-navbar');
@@ -102,16 +105,5 @@ for (const paragraph of paragraphs) {
     paragraph.textContent = shortText;
 }
 
-// Scroll problem handle
 
-history.scrollRestoration = "manual";
-window.onbeforeunload =  () => {window.scrollTo(0, 0)}
-window.onbeforeunload = () => {
-	var url = window.location.href;
-    console.log(url);
-    if( url.indexOf('#') < 0 ) {
-        window.location.replace(url + "#");
-    } else {
-        window.location.replace(url);
-    }
-}
+

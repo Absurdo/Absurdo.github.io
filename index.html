@@ -8,14 +8,9 @@
     <link rel="stylesheet" href="./src/styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <script>
-        /*history.scrollRestoration = "manual";
-        window.onbeforeunload = function() {
-          window.scrollTo(0,0);
-        };
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        document.body.scrollTop = 0; // For Safari*/
-        
-      </script>
+        history.scrollRestoration = "manual";
+        window.onload =  () => {window.scrollTo(0,0)}
+    </script>
     <title>Ecommerce</title>
 </head>
 
@@ -83,7 +78,44 @@
         </footer>
     </main>
     <div id="modal-container"></div>
-    <script src="src/js/main.js" type="module"></script>
+    <script src="./src/js/main.js" type="module"></script>
+    <script>
+        //remove from cart functionality
+        function removeItem(cartItem) {
+            const prelist = getCartFromLocalStorage();
+            const newCart = prelist.filter(item => item.id !== cartItem.id);
+            localStorage.setItem('cart', JSON.stringify(newCart));
+            const list = getCartFromLocalStorage();
+            const listCart = list.map((item) => printCart(item));
+            const navbarCart = document.getElementById('cart-list');
+            navbarCart.innerHTML = listCart.join(' ');
+        }
+
+        printCart = (cartItem) => {
+            return `
+            <div class="list__item">
+                <figure>
+                    <img class="img__item" src="./src/img/notebook/${cartItem.url}" alt="">
+                </figure>
+                <p> class="title__item">${cartItem.name}</p>
+                <button class="remove-item-navbar" id="remove-${cartItem.id}" onclick='removeItem(${JSON.stringify(cartItem)})'> X </button>
+            </div>
+        `;
+        }
+
+        // Scroll problem handle
+
+        
+        /*window.onbeforeunload = () => {
+            var url = window.location.href;
+            console.log(url);
+            if( url.indexOf('#') < 0 ) {
+                window.location.replace(url + "#");
+            } else {
+                window.location.replace(url);
+            }
+        }*/
+    </script>
 </body>
 
 </html>
