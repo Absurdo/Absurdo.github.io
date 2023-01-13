@@ -14,6 +14,7 @@ const showModal = (nodes) => {
     const myfigure = nodes[1].childNodes[1].currentSrc;
     const txt = object['name'];
     
+    
     const cartIcon = '<span class="material-symbols-outlined">shopping_cart</span>';
     const buyIcon = '<span class="material-symbols-outlined">shopping_bag</span>'
 
@@ -32,8 +33,8 @@ const showModal = (nodes) => {
     const buyButton = document.createElement('button');
 
     // add content to tags
-    h3.innerHTML = "Descripción";
-    p.innerText = txt;
+    h3.innerText = "Descripción";
+    p.textContent  = txt;
     addButton.innerHTML = cartIcon;
     buyButton.innerHTML = buyIcon;
     //img.setAttribute('src', myfigure);
@@ -42,6 +43,7 @@ const showModal = (nodes) => {
       'font-variation-settings': "'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48",
       'color': 'white'
     });
+    // For background image
     css(left, {
       'background-image': 'linear-gradient(134deg,rgba(0,0,0,0.4),rgba(255,255,255,0.4)),url("'+myfigure+'")',
       'background-repeat': 'no-repeat',

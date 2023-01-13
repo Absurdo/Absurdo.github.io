@@ -13,7 +13,6 @@
     </script>
     <title>Ecommerce</title>
 </head>
-
 <body>
     <nav class="navbar">
         <figure>
@@ -88,29 +87,29 @@
 
         function removeItem(cartItem) {
             const prelist = getCartFromLocalStorage();
-            const newCart = prelist.filter(item => item.id !== cartItem.id);
-            localStorage.setItem('cart', JSON.stringify(newCart));
+            //const newCart = prelist.filter(item => item.id !== cartItem.id);
+            const idx = prelist.findIndex(item => item.id == cartItem.id);
+            prelist.splice(idx,1);   
+            localStorage.setItem('cart', JSON.stringify(prelist));
             const list = getCartFromLocalStorage();
             const listCart = list.map((item) => printCart(item));
             const navbarCart = document.getElementById('cart-list');
             navbarCart.innerHTML = listCart.join(' ');
         }
 
-        printCart = (cartItem) => {
+        const printCart = (cartItem) => {
             return `
             <div class="list__item">
                 <figure>
                     <img class="img__item" src="./src/img/notebook/${cartItem.url}" alt="">
                 </figure>
-                <p> class="title__item">${cartItem.name}</p>
+                <p class="title-item">${cartItem.name}</p>
                 <button class="remove-item-navbar" id="remove-${cartItem.id}" onclick='removeItem(${JSON.stringify(cartItem)})'> X </button>
             </div>
         `;
         }
 
         // Scroll problem handle
-
-        
         /*window.onbeforeunload = () => {
             var url = window.location.href;
             console.log(url);

@@ -1,3 +1,13 @@
+function handleArrays(x) {
+	let helperArray = [];
+	if (Array.isArray(x) == false) {
+		  helperArray.push(x);
+      return helperArray;
+	}else{
+      return x
+  }
+}
+
 const shoppingCart = (state = [], action) => {
     switch (action.type) {
       case 'ADD_TO_CART':
@@ -36,7 +46,9 @@ const shoppingCart = (state = [], action) => {
   
   export const updateCart = action => {
     try {
-      const currentCart = getCartFromLocalStorage();
+      let currentCart = getCartFromLocalStorage();
+      currentCart = handleArrays(currentCart)
+      console.log(currentCart)
       const newCart = shoppingCart(currentCart, action);
       saveCartToLocalStorage(newCart);
     } catch (error) {

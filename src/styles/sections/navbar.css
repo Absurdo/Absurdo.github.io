@@ -34,7 +34,6 @@
 }
 
 .item:hover {
-    cursor: pointer;
     border-bottom: 3px solid var(--color4);
     background: var(--color2);
     font-weight: bold;
@@ -73,35 +72,42 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 80px;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
-    border-bottom: 2px solid var(--color1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .list__item>figure {
-    /*display: flex;
-    justify-content: center;
-    align-items: center; */
+    display: flex;
+    align-items: center;
     height: 80px;
     width: 30%;
-    display: inline-block;
 }
+
 .list__item>p {
     display: inline-block;
-    width: 50%;
+    width: 60%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
 }
+
 .list__item>button {
-    display: contents;
-    width: 15%;
-    font-size: 30px;
-    /*content: "\00d7"; */
+    display: block;
+    width: 12%;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bolder;
     color: white;
     cursor: pointer;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.list__item>button:hover{
+    background-color: rgba(255,255,255,0.3);
 }
 
 .img__item {
