@@ -1,4 +1,4 @@
-import { getCartFromLocalStorage, removeFromCart, updateCart } from "./shoppingCart.js"; 
+//import { getCartFromLocalStorage, removeFromCart, updateCart } from "./shoppingCart.js"; 
 
 export const templateCard = (product) => {
 	return `
@@ -31,9 +31,6 @@ export const printCart = (cartItem) => {
     </div>
 `;
 }
-
-
-
 
 /*
 function removeItem() {

@@ -59,9 +59,9 @@
     --color7: rgb(124,131,133);
 }
 
-html {
+/*html {
     scroll-behavior: smooth;
-}
+}*/
 
 body {
     font-family: 'Gilroy-Medium', Arial, sans-serif;

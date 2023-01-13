@@ -78,6 +78,10 @@
     border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
+.visible{
+    display: flex;
+}
+
 .list__item>figure {
     display: flex;
     align-items: center;

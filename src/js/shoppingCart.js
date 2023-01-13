@@ -1,12 +1,4 @@
-function handleArrays(x) {
-	let helperArray = [];
-	if (Array.isArray(x) == false) {
-		  helperArray.push(x);
-      return helperArray;
-	}else{
-      return x
-  }
-}
+import { handleArrays } from "../utils/helpers.js";
 
 const shoppingCart = (state = [], action) => {
     switch (action.type) {
@@ -48,7 +40,6 @@ const shoppingCart = (state = [], action) => {
     try {
       let currentCart = getCartFromLocalStorage();
       currentCart = handleArrays(currentCart)
-      console.log(currentCart)
       const newCart = shoppingCart(currentCart, action);
       saveCartToLocalStorage(newCart);
     } catch (error) {
