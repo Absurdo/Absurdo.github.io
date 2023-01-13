@@ -81,6 +81,11 @@
     <script src="./src/js/main.js" type="module"></script>
     <script>
         //remove from cart functionality
+        const getCartFromLocalStorage = () => {
+            const cart = localStorage.getItem('cart');
+            return cart ? JSON.parse(cart) : [];
+        };
+
         function removeItem(cartItem) {
             const prelist = getCartFromLocalStorage();
             const newCart = prelist.filter(item => item.id !== cartItem.id);
