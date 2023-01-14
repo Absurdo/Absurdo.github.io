@@ -47,16 +47,6 @@ addToCartButtons.forEach(element => {
 }) 
 
 // add cart item from modal
-const addToCartButtonsModal = document.querySelectorAll('.add');
-addToCartButtonsModal.forEach(element => {
-	const myobject = JSON.parse(element.id);
-	element.addEventListener('click', () => updateCart(addToCart(myobject)));
-	const list = getCartFromLocalStorage();
-	const listCart = list.map((item) => printCart(item));
-	const navbarCart = document.getElementById("cart-list");
-	navbarCart.innerHTML = listCart.join(" ");
-}) 
-
 
 
 // Display cart

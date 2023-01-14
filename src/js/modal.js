@@ -1,6 +1,6 @@
-import { addToCart, updateCart } from "./shoppingCart.js"
+import { addToCart, updateCart } from "./shoppingCart.js";
+import { printCart } from "./templates.js";
 
-const modalContainer = document.getElementById('modal-container');
 
 function css(element, style) {
   for (const property in style)
@@ -13,8 +13,9 @@ const showModal = (nodes) => {
     object = JSON.parse(object);
     const myfigure = nodes[1].childNodes[1].currentSrc;
     const txt = object['name'];
-    
-    
+
+    const modalContainer = document.getElementById("modal-container");
+
     const cartIcon = '<span class="material-symbols-outlined">shopping_cart</span>';
     const buyIcon = '<span class="material-symbols-outlined">shopping_bag</span>'
 
@@ -25,10 +26,9 @@ const showModal = (nodes) => {
     const rightTop = document.createElement('div');
     const rigthBotton = document.createElement('div');
     const h3 = document.createElement('h3');
-    const descripcion = document.createElement('div');
     const p = document.createElement('p');
     const img = document.createElement('img');
-    const closeButton = document.createElement('button');
+    const closeButton = document.createElement('span');
     const addButton = document.createElement('button');
     const buyButton = document.createElement('button');
 
@@ -38,7 +38,7 @@ const showModal = (nodes) => {
     addButton.innerHTML = cartIcon;
     buyButton.innerHTML = buyIcon;
     //img.setAttribute('src', myfigure);
-    closeButton.textContent = 'Close';
+    closeButton.textContent = 'X';
     css(rigthBotton, {
       'font-variation-settings': "'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48",
       'color': 'white'
@@ -69,8 +69,8 @@ const showModal = (nodes) => {
     //left.appendChild(img);
     rightTop.appendChild(p);
     rightTop.appendChild(closeButton);
-    rigthBotton.appendChild(addButton);
     rigthBotton.appendChild(buyButton);
+    rigthBotton.appendChild(addButton);
     right.appendChild(h3);
     right.appendChild(rightTop);
     right.appendChild(rigthBotton)
@@ -78,13 +78,37 @@ const showModal = (nodes) => {
     modal.appendChild(right);
     
     // add the modal to the page
+    modalContainer.style.display = "block";
     modalContainer.appendChild(modal);
 
     // modal behavior
-    closeButton.addEventListener('click', () => { modalContainer.removeChild(modal) });
-    addButton.onclick = () => { updateCart(addToCart(object)) }
-    buyButton.onclick = () => { location.assign('/thankyou.html') }
     
-  }
+    const dropdown = document.getElementById("list");
+    addButton.onclick = () => { 
+      updateCart(addToCart(object)); 
+      const list = getCartFromLocalStorage();
+      const listCart = list.map((item) => printCart(item));
+      const navbarCart = document.getElementById("cart-list");
+      navbarCart.innerHTML = listCart.join(" ");
+      dropdown.classList.add('visible');
+    }
+    addButton.onmouseout = () => {
+      dropdown.classList.remove('visible')
+    }
+
+    buyButton.onclick = () => { location.assign('/thankyou.html') }
+
+    closeButton.onclick = () => { 
+      modalContainer.removeChild(modal);
+      modalContainer.style.display = "none"; 
+    };
+
+    window.onclick = (event) => {
+      if (event.target == modalContainer) {
+        modalContainer.style.display = "none";
+        modalContainer.removeChild(modal)
+      }
+    }
+}
 
   export default showModal;
