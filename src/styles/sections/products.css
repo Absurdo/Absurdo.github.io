@@ -6,11 +6,6 @@ article{
     align-items: center;
 }
 
-section small{
-    display: block;
-    text-align: center;
-    opacity: 0.3;
-}
 
 #wrap-laptops, #wrap-accesories {
     display: flex;
@@ -29,6 +24,22 @@ section small{
     top: -70px;
 }
 
+section small{
+    display: block;
+    text-align: center;
+    opacity: 0.3;
+}
+
+section small, .title_notebook{
+    line-height: 28px;
+}
+
+.title_notebook{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .accesorios, .products{
     width: 80%;
 }
@@ -41,14 +52,10 @@ section small{
     padding-left: 0;
 
 }
-.title_notebook{
-    width: 100%;
-    text-align: center;
-}
 
 .card {
     width: 30%;
-    max-width: 300px;
+    max-width: 400px;
     border-radius: 5px;
     overflow: hidden;
     margin: 15px 0;
@@ -113,7 +120,7 @@ section small{
     background: var(--color4);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     #products, #accesories{
         justify-content: center;
     }
@@ -122,6 +129,7 @@ section small{
     }
     section small, .title_notebook{
         text-align: left;
+        margin-left: 8%;
     }
     .accesorios, .products{
         width: 90%;
@@ -134,7 +142,7 @@ section small{
     }
     .card {
         display: flex;
-        width: 80%;
+        width: 100%;
     }
     .containImg {
         height: auto; 
@@ -155,3 +163,11 @@ section small{
         height: 80px;
     }
   }
+  @media (max-width:400px) {
+    .card{
+        width: 90%;
+    }
+    .accesorios, .products{
+        width: 100%;
+    }
+}

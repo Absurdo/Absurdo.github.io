@@ -27,7 +27,9 @@ export const printCart = (cartItem) => {
             <img class="img__item" src="./src/img/notebook/${cartItem.url}" alt="">
         </figure>
         <p class="title-item">${cartItem.name}</p>
-        <button class="remove-item-navbar" id="remove-${cartItem.id}" onclick='removeItem(${JSON.stringify(cartItem)})'> X </button>
+        <button class="remove-item-navbar" id="remove-${cartItem.id}" onclick='removeItem(${JSON.stringify(cartItem)})'> 
+             X
+        </button>
     </div>
 `;
 }

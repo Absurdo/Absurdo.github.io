@@ -43,7 +43,7 @@
 }
 
 .modal-right-top{
-    height: 80%;
+    height: 70%;
 }
 
 .modal-right-bottom{
@@ -60,7 +60,8 @@
     max-height: 60vh;
 }
 .modal-text{
-    height: 90%;
+    height: 75%;
+    line-height: 25px;
     padding: 28px 5px 10px 0;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -81,15 +82,21 @@
     cursor: pointer;
 }
 
-.add-button{
+.add-button:hover,
+.add-button:focus,
+.buy-button:hover, 
+.buy-button:focus:hover
+{
+ cursor: pointer;
+}
 
+.add-button, .buy-button{
+    padding: 2px;
 }
 
 .buy-button{
     background-color: var(--color4);
     color: white;
-    padding: 2px;
-    cursor: pointer;
 }
 
 /*.test {
@@ -144,8 +151,21 @@
     height: 15px;
 } */
 
-@media (max-width:600px) {
+@media (max-width:700px) {
     .modal{
         flex-direction: column;
+        height: 60%;
+    }
+    .modal-left, .modal-right{
+        width: 100%;
+    }
+    .modal-left, .modal-right{
+        height: 50%;
+    }
+}
+
+@media (max-width:400px) {
+    .modal{
+        width: 90%;
     }
 }
